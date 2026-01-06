@@ -1,9 +1,10 @@
-import mongoose from mongoose
-mongoose.connect()
-import express from "express";
-const app=express()
-const port=3000
-app.listen("port",()=>{
-    console.log("hello there");
+import dotenv from "dotenv"
+import connectDB from "./db/db.js"
+connectDB()
+dotenv.config({
+path:'./env'
 })
-kkkd
+
+// What dotenv/config does:
+// Reads your .env file
+// Loads values into process.env
