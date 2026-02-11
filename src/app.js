@@ -12,5 +12,11 @@ app.use(express.json({
 app.get
 app.use(express.static("public"))
 app.use(cookieParser())
+//example:
+// const token = req.cookies.jwt;
+// // 🔥 Very important for:
+// // authentication
+// // refresh tokens
+// // session handling
 app.use(express.urlencoded({extended:true,limit:"16kb"}))
 export {app}

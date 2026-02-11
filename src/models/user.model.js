@@ -35,6 +35,28 @@ const userSchema=new Schema({
         ref:"Video"
     }
 ],
+/*watchHistory is an array
+Each element in the array is an ObjectId
+That ObjectId points (references) a document in the Video collection
+Yes, the ObjectId stored here is the _id of a Video document.
+---------------------------------------
+With populate()
+User.findById(id).populate("watchHistory");
+Output:
+[
+  {
+    _id: "66a9f2c3e8a1c9a12f001234",
+    title: "Intro to JS",
+    duration: 10
+  },
+  {
+    _id: "66a9f2c3e8a1c9a12f005678",
+    title: "React Basics",
+    duration: 15
+  }
+]
+  🔥 Mongoose automatically replaces ObjectIds with actual Video documents.
+*/ 
 password:{
     type:String,
      required:[true,'pass is reuired']
