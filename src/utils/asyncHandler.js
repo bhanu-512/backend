@@ -11,6 +11,11 @@ export {asyncHandler}
  through a higher-order function asyncHandler, so it 
  returns the function async (req, res, next) that runs 
  the code in a try–catch block.”
+ ----------------------------------------------
+When a function is marked async:
+It automatically returns a Promise.
+If you throw an error inside it → that Promise becomes rejected.
+-------------------------------------------------------
 const asyncHanler=(fn)=>async(req,res,next)=>{
 try {
     await fn(req,res,next)
@@ -22,3 +27,21 @@ try {
 }
 }
 */
+/*async functions are used to handle asynchronous operations.
+Error handling using next() is just how we manage rejected promises in Express.
+-----------------------------------------------
+If an async function throws error and no one catches it:
+
+Promise rejects
+
+Express doesn’t know what to do
+
+Process may crash
+
+That’s why we use:
+
+try/catch
+OR
+
+asyncHandler wrapper
+ */
