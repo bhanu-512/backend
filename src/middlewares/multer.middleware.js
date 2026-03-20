@@ -12,4 +12,25 @@ const storage = multer.diskStorage({
     cb(null, file.originalname)
   }
 })
-const upload = multer({ storage, })
+export const upload = multer({ storage, })
+
+/*multipart/form-data (file uploads)
+Without Multer ❌
+Express cannot read files (images, videos, PDFs)
+With Multer ✅
+Files are received
+Stored on server
+Available in req.file / req.files
+---------------------------------------
+When frontend sends a request:
+
+Content-Type: multipart/form-data
+
+Multer:
+
+Reads file
+
+Saves it in ./public/temp
+Adds info to req.files
+👉 It does NOT check file type unless you tell it to
+*/
